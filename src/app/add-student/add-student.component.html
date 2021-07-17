@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form class="contact-form" [formGroup]="addStudentForms" (submit)="onSubmit(addStudentForms.value)"
+                autocomplete="off">
+                <div *ngIf="editStudent!=null; else addPart">
+                    <h2 class="subheading">Edit Student Info</h2>
+                </div>
+                <ng-template #addPart>
+                    <h2 class="subheading">Add Student Info</h2>
+                </ng-template>
+                <div class="mb-3 form-group">
+                    <mat-form-field class="full-width form-control" color="accent" appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName" type="text" required />
+                    </mat-form-field>
+                </div>
+                <div class="mb-3 form-group">
+                    <mat-form-field class="full-width form-control" color="accent" appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName" type="text" required />
+                    </mat-form-field>
+                </div>
+                <div class="mb-3 form-group">
+                    <mat-form-field appearance="fill" class="full-width form-control" color="accent">
+                        <mat-label>Class</mat-label>
+                        <mat-select formControlName="class" (selectionChange)="getSubjects($event)">
+                            <mat-option *ngFor="let classItem of classData" [value]="classItem.id">{{classItem.title}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="mb-3 form-group">
+                    <ng-container formArrayName="marks">
+                        <ng-container *ngFor="let markForm of marks.controls; let i = index">
+                            <div class="full-width form-control" [formGroupName]="i">
+                                <div>
+                                    <mat-label>Subject: {{subjectData[i].subject.title}}</mat-label>
+                                </div>
+                                <div class="mb-3">
+                                    <mat-form-field class="full-width form-control" color="accent">
+                                        <mat-label>Marks</mat-label>
+                                        <input matInput formControlName="total" type="number" required />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-secondary" title="Submit" mat-raised-button color="primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "firstName": "Test",
+        "lastName": "Test",
+        "createdAt": "2021-07-15T11:59:00.000Z",
+        "updatedAt": "2021-07-21T11:59:00.000Z",
+        "marks": [
+            {
+                "id": 3,
+                "classSubjectId": 1,
+                "studentId": 1,
+                "marks": 70,
+                "class_subject": {
+                    "id": 1,
+                    "classId": 1,
+                    "subjectId": 1,
+                    "class": {
+                        "id": 1,
+                        "title": "10th",
+                        "createdAt": "2021-07-14T12:18:16.000Z",
+                        "updatedAt": "2021-07-08T12:18:16.000Z"
+                    },
+                    "subject": {
+                        "id": 1,
+                        "title": "Hindi",
+                        "createdAt": "2021-07-15T12:18:49.000Z",
+                        "updatedAt": "2021-07-16T12:18:49.000Z"
+                    }
+                }
+            }
+        ]
+    }
+]
